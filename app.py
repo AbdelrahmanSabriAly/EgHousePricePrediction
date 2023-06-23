@@ -1,20 +1,17 @@
 import streamlit as st #
-import joblib #
+import pickle
 import numpy as np #
 import pandas as pd #
 from streamlit_option_menu import option_menu #
 import seaborn as sns  #
 import matplotlib.pyplot as plt #
-from annotated_text import annotated_text
-
-
-
+from annotated_text import annotated_text #
 
 
 X = pd.read_csv('data.csv')
 df = pd.read_csv("cleaned.csv")
-
-model = joblib.load("Egypt_HPP.joblib")
+pickle_in = open("Model.pkl","rb")
+model = pickle.load(pickle_in)
 
 
 
