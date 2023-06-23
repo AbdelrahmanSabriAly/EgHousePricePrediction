@@ -8,12 +8,11 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from bokeh.plotting import figure
 from bokeh.models import HoverTool, ColumnDataSource
-import locale
+
 from annotated_text import annotated_text
 import streamlit.components.v1 as components
 
-# Set the locale for your desired formatting
-locale.setlocale(locale.LC_ALL, 'en_EG.UTF-8')
+
 
 
 X = pd.read_csv('data.csv')
@@ -91,7 +90,6 @@ elif choose == "App":
         np.put(x, indices_to_set, 1)
 
         prediction = model.predict([x])[0].round(2)
-        prediction = locale.currency(prediction,grouping=True)
         st.success("The predicted house price: "+str(prediction))
 
     st.button("Predict!",on_click=PREDICT)
