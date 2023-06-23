@@ -1,16 +1,12 @@
-import streamlit as st
-import joblib
-import numpy as np
-import pandas as pd
-from streamlit_option_menu import option_menu
-import streamlit.components.v1 as html
-import seaborn as sns
-import matplotlib.pyplot as plt
-from bokeh.plotting import figure
-from bokeh.models import HoverTool, ColumnDataSource
-
+import streamlit as st #
+import joblib #
+import numpy as np #
+import pandas as pd #
+from streamlit_option_menu import option_menu #
+import seaborn as sns  #
+import matplotlib.pyplot as plt #
 from annotated_text import annotated_text
-import streamlit.components.v1 as components
+
 
 
 
