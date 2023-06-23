@@ -5,3 +5,4 @@ seaborn==0.12.2
 st_annotated_text==4.0.0
 streamlit==1.23.1
 streamlit_option_menu==0.3.6
+scikit-learn==1.2.1
