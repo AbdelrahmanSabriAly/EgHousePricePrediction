@@ -7,6 +7,13 @@ import seaborn as sns  #
 import matplotlib.pyplot as plt #
 from annotated_text import annotated_text #
 
+hide_st_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer{visibility: hidden;}
+</style>
+"""
+st.markdown(hide_st_style,unsafe_allow_html=True)
 
 X = pd.read_csv('data.csv')
 df = pd.read_csv("cleaned.csv")
