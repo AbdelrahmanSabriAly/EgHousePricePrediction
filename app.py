@@ -116,7 +116,7 @@ elif choose == "App":
 
         prediction = int(model.predict([x])[0])
         formatted_number = format_money(prediction)
-        st.success("The predicted house price: "+formatted_number+" EGP" )
+        st.success("Your house price is: "+formatted_number+" EGP" )
 
     st.button("Predict!",on_click=PREDICT)
 
