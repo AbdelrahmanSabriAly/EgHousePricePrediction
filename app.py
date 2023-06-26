@@ -6,10 +6,6 @@ from streamlit_option_menu import option_menu #
 import seaborn as sns  #
 import matplotlib.pyplot as plt #
 from annotated_text import annotated_text #
-import locale
-locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
-#locale.setlocale(locale.LC_ALL, 'ar_EG')
-
 
 hide_st_style = """
 <style>
@@ -19,10 +15,32 @@ footer{visibility: hidden;}
 """
 st.markdown(hide_st_style,unsafe_allow_html=True)
 
+def format_money(number):
+    # Convert number to string
+    number_str = str(number)
+
+    # Reverse the string
+    reversed_str = number_str[::-1]
+
+    # Divide the reversed string into groups of three digits
+    groups = [reversed_str[i:i+3] for i in range(0, len(reversed_str), 3)]
+
+    # Join the groups with commas
+    formatted_str = ",".join(groups)
+
+    # Reverse the string again
+    final_str = formatted_str[::-1]
+
+    # Return the formatted string
+    return final_str
+
+
 X = pd.read_csv('data.csv')
 df = pd.read_csv("cleaned.csv")
 pickle_in = open("Model.pkl","rb")
 model = pickle.load(pickle_in)
+
+
 
 
 
@@ -96,9 +114,9 @@ elif choose == "App":
         indices_to_set = np.concatenate([Type_index, Furnished_index, City_index, Payment_Option_index, Delivery_Term_index])
         np.put(x, indices_to_set, 1)
 
-        prediction = model.predict([x])[0].round(2)
-        formatted_number = locale.currency(prediction, grouping=True)
-        st.success("The predicted house price: "+str(formatted_number))
+        prediction = int(model.predict([x])[0])
+        formatted_number = format_money(prediction)
+        st.success("The predicted house price: "+formatted_number+" EGP" )
 
     st.button("Predict!",on_click=PREDICT)
 
