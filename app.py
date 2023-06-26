@@ -37,10 +37,13 @@ with st.sidebar:
 if choose == "About":
     st.title("House Price Prediction :house:")
     st.subheader("This project is based on egyption dataset.")
-    st.subheader("You can find the dataset in the following link:")
+    st.write("You can find the dataset in the following link:")
     st.markdown("[Egyptian Houses_price Data](https://www.kaggle.com/datasets/mohammedaltet/egypt-houses-price)")
     st.write("This work is inspired by the notebook of MOHAMMED ALTET, you can find the notebook in the following link")
     st.markdown("[Egypt_Houses_notebook](https://www.kaggle.com/code/mohammedaltet/egypt-houses-notebook)")
+    st.subheader("You can find the code in the following GitHub repository")
+    st.markdown("[GitHub Repo](https://github.com/AbdelrahmanSabriAly/EgHousePricePrediction.git)")
+    
 
 elif choose == "App":
     st.title("House Price Prediction :house:")
@@ -139,6 +142,7 @@ else:
 
     st.subheader("Abdelrahman Sabri Aly")
     st.write("Email: aaly6995@gmail.com")
+    st.write("Phone: +201010681318")
     st.markdown("[WhatsApp:]( https://wa.me/+201010681318)")
     st.markdown("[Linkedin](https://www.linkedin.com/in/abdelrahman-sabri)")
     #st.markdown('<i class="fa fa-linkedin-square"></i>', unsafe_allow_html=True)
