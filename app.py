@@ -8,8 +8,23 @@ import matplotlib.pyplot as plt #
 from annotated_text import annotated_text #
 import locale
 
-# Set the locale to Egypt (ar_EG)
-locale.setlocale(locale.LC_ALL, 'ar_EG')
+# Save the current locale settings
+saved_locale = locale.setlocale(locale.LC_ALL)
+
+try:
+    # Override the locale with a supported one
+    locale.setlocale(locale.LC_ALL, 'C')
+
+    # Your code that requires locale settings goes here
+    # Set the locale to Egypt (ar_EG)
+    locale.setlocale(locale.LC_ALL, 'ar_EG')
+
+finally:
+    # Restore the original locale settings
+    locale.setlocale(locale.LC_ALL, saved_locale)
+
+
+
 
 hide_st_style = """
 <style>
