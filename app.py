@@ -6,6 +6,10 @@ from streamlit_option_menu import option_menu #
 import seaborn as sns  #
 import matplotlib.pyplot as plt #
 from annotated_text import annotated_text #
+import locale
+
+# Set the locale to Egypt (ar_EG)
+locale.setlocale(locale.LC_ALL, 'ar_EG')
 
 hide_st_style = """
 <style>
@@ -93,7 +97,8 @@ elif choose == "App":
         np.put(x, indices_to_set, 1)
 
         prediction = model.predict([x])[0].round(2)
-        st.success("The predicted house price: "+str(prediction))
+        formatted_number = locale.currency(prediction, grouping=True)
+        st.success("The predicted house price: "+str(formatted_number))
 
     st.button("Predict!",on_click=PREDICT)
 
